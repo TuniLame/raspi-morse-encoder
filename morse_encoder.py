@@ -50,6 +50,7 @@ def main():
 
     while True:
         pygame.mixer.music.stop()
+        pygame.mixer.music.set_volume(0)
         msg = raw_input('MESSAGE: ')
         verify(msg)
         pygame.mixer.init(8000) # Define sound speed. Original is 8000
