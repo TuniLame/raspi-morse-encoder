@@ -31,6 +31,16 @@ def verify(string):
 			sys.exit('Error the charcter ' + char + ' cannot be translated to Morse Code')
 
 def main():
+
+    # Start
+    pygame.mixer.init(8000) # Define sound speed. Original is 8000
+    pygame.init()
+    morseFile= PATH + 'T_morse_code.ogg'
+    pygame.mixer.music.load(morseFile)
+    #wave_object= wave.open(morseFile,'r')
+    pygame.mixer.music.play()
+    time.sleep(THREE_UNITS)
+
     while True:
         msg = raw_input('MESSAGE: ')
         verify(msg)
