@@ -30,21 +30,21 @@ def verify(string):
 			sys.exit('Error the charcter ' + char + ' cannot be translated to Morse Code')
 
 def main():
+    while True:
+    	msg = raw_input('MESSAGE: ')
+    	verify(msg)
 
-	msg = raw_input('MESSAGE: ')
-	verify(msg)
+    	pygame.init()
 
-	pygame.init()
-
-	for char in msg:
-		if char == ' ':
-			print ' '*7,
-			time.sleep(SEVEN_UNITS)
-		else:
-			print CODE[char.upper()],
-			pygame.mixer.music.load(PATH + char.upper() + '_morse_code.ogg')
-			pygame.mixer.music.play()
-			time.sleep(THREE_UNITS)
+    	for char in msg:
+    		if char == ' ':
+    			print ' '*7,
+    			time.sleep(SEVEN_UNITS)
+    		else:
+    			print CODE[char.upper()],
+    			pygame.mixer.music.load(PATH + char.upper() + '_morse_code.ogg')
+    			pygame.mixer.music.play()
+    			time.sleep(THREE_UNITS)
 
 if __name__ == "__main__":
 	main()
