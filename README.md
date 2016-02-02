@@ -1,2 +1,7 @@
 # raspi-morse-encoder
-A 
+A
+
+
+@TODO
+* Check if it boots only on lan
+* more software audio volume

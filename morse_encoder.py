@@ -1,3 +1,6 @@
+
+
+
 import sys
 import pygame
 import time
@@ -42,6 +45,7 @@ def main():
     pygame.mixer.music.load(morseFile)
     #wave_object= wave.open(morseFile,'r')
     pygame.mixer.music.play()
+    pygame.mixer.music.set_volume(1.0)
     time.sleep(THREE_UNITS)
 
     while True:
@@ -62,6 +66,7 @@ def main():
                 pygame.mixer.music.load(morseFile)
                 #wave_object= wave.open(morseFile,'r')
                 pygame.mixer.music.play()
+                pygame.mixer.music.set_volume(1.0)
                 time.sleep(THREE_UNITS)
         print '\n'
 
