@@ -45,6 +45,7 @@ def main():
     			pygame.mixer.music.load(PATH + char.upper() + '_morse_code.ogg')
     			pygame.mixer.music.play()
     			time.sleep(THREE_UNITS)
+        print '\n'
 
 if __name__ == "__main__":
 	main()
