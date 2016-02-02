@@ -25,6 +25,7 @@ CODE = {'A': '.-',     'B': '-...',   'C': '-.-.',
 ONE_UNIT = 0.5
 THREE_UNITS = 3 * ONE_UNIT
 SEVEN_UNITS = 7 * ONE_UNIT
+SAMPLE_FREQUENCY = 10000
 #PATH = '/morse_sound_files/'
 
 def verify(string):
@@ -39,7 +40,7 @@ def main():
     PATH = sys.argv[1]+ '/morse_sound_files/'
     print PATH
     # Start
-    pygame.mixer.init(8000) # Define sound speed. Original is 8000
+    pygame.mixer.init(SAMPLE_FREQUENCY) # Define sound speed. Original is 8000
     pygame.init()
     morseFile= PATH + 'T_morse_code.ogg'
     pygame.mixer.music.load(morseFile)
@@ -47,30 +48,28 @@ def main():
     pygame.mixer.music.play()
     pygame.mixer.music.set_volume(1.0)
     time.sleep(THREE_UNITS)
-
+    pygame.quit();
     while True:
-        pygame.mixer.music.stop()
-        pygame.mixer.music.set_volume(0)
-        pygame.quit();
         msg = raw_input('MESSAGE: ')
         verify(msg)
-        pygame.mixer.init(8000) # Define sound speed. Original is 8000
-        pygame.init()
-
         for char in msg:
             if char == ' ':
                 print ' '*7,
                 time.sleep(SEVEN_UNITS)
-                pygame.mixer.music.stop()
-            else:
-                morseFile= PATH + char.upper() + '_morse_code.ogg'
 
+
+            else:
+                pygame.mixer.init(SAMPLE_FREQUENCY) # Define sound speed. Original is 8000
+                pygame.init()
+                morseFile= PATH + char.upper() + '_morse_code.ogg'
                 print CODE[char.upper()],
                 pygame.mixer.music.load(morseFile)
                 #wave_object= wave.open(morseFile,'r')
                 pygame.mixer.music.play()
                 pygame.mixer.music.set_volume(1.0)
                 time.sleep(THREE_UNITS)
+                pygame.mixer.music.stop()
+                pygame.quit();
         print '\n'
 
 if __name__ == "__main__":
