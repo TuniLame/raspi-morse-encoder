@@ -24,7 +24,7 @@ CODE = {'A': '.-',     'B': '-...',   'C': '-.-.',
 
 ONE_UNIT = 0.5
 THREE_UNITS = 3 * ONE_UNIT
-SEVEN_UNITS = 7 * ONE_UNIT
+SEVEN_UNITS = 6 * ONE_UNIT
 SAMPLE_FREQUENCY = 10000
 #PATH = '/morse_sound_files/'
 
