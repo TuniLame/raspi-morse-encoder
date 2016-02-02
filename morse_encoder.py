@@ -1,6 +1,7 @@
 import sys
 import pygame
 import time
+import wave
 
 CODE = {'A': '.-',     'B': '-...',   'C': '-.-.',
         'D': '-..',    'E': '.',      'F': '..-.',
@@ -31,20 +32,24 @@ def verify(string):
 
 def main():
     while True:
-    	msg = raw_input('MESSAGE: ')
-    	verify(msg)
+        msg = raw_input('MESSAGE: ')
+        verify(msg)
+        pygame.mixer.init(8000) # Define sound speed. Original is 8000
+        pygame.init()
 
-    	pygame.init()
+        for char in msg:
+            if char == ' ':
+                print ' '*7,
+                time.sleep(SEVEN_UNITS)
+                pygame.mixer.music.stop()
+            else:
+                morseFile= PATH + char.upper() + '_morse_code.ogg'
 
-    	for char in msg:
-    		if char == ' ':
-    			print ' '*7,
-    			time.sleep(SEVEN_UNITS)
-    		else:
-    			print CODE[char.upper()],
-    			pygame.mixer.music.load(PATH + char.upper() + '_morse_code.ogg')
-    			pygame.mixer.music.play()
-    			time.sleep(THREE_UNITS)
+                print CODE[char.upper()],
+                pygame.mixer.music.load(morseFile)
+                #wave_object= wave.open(morseFile,'r')
+                pygame.mixer.music.play()
+                time.sleep(THREE_UNITS)
         print '\n'
 
 if __name__ == "__main__":
