@@ -22,7 +22,7 @@ CODE = {'A': '.-',     'B': '-...',   'C': '-.-.',
 ONE_UNIT = 0.5
 THREE_UNITS = 3 * ONE_UNIT
 SEVEN_UNITS = 7 * ONE_UNIT
-PATH = 'morse_sound_files/'
+#PATH = '/morse_sound_files/'
 
 def verify(string):
 	keys = CODE.keys()
@@ -32,6 +32,9 @@ def verify(string):
 
 def main():
 
+
+    PATH = sys.argv[1]+ '/morse_sound_files/'
+    print PATH
     # Start
     pygame.mixer.init(8000) # Define sound speed. Original is 8000
     pygame.init()
